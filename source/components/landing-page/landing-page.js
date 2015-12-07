@@ -18,10 +18,16 @@ app.directive('landingPage', function () {
     }
 });
 
-app.controller('landingPageController', ['$scope', '$state', 'restService', 'projectService', 'testimonialService', function ($scope, state, restService, projectService, testimonialService) {
+app.controller('landingPageController', ['$scope', '$state', '$location', 'restService', 'projectService', 'testimonialService', function ($scope, $state, $location, restService, projectService, testimonialService) {
 
     $scope.projectName = '';
     $scope.testimonialId = '';
+
+    var absUrl = $location.absUrl();
+    absUrl = absUrl.substring(0, absUrl.length - 3);
+
+    $scope.uriProject = absUrl+'/api/project/';
+    $scope.uriTestimonial = absUrl+'/api/testimonial/';
 
     $scope.submitProject = function (projectName) {
         console.log(projectName);
@@ -38,6 +44,7 @@ app.controller('landingPageController', ['$scope', '$state', 'restService', 'pro
     };
 
     var getProjectDetails = function (response) {
+        $scope.uriProject = absUrl+response.config.url;
         if (response.status == 200)
             $scope.project = JSON.stringify(response.data, undefined, 4);
         else
@@ -45,6 +52,7 @@ app.controller('landingPageController', ['$scope', '$state', 'restService', 'pro
     };
 
     var getTestimonialDetails = function (response) {
+        $scope.uriTestimonial = absUrl+response.config.url;
         if (response.status == 200)
             $scope.testimonial = JSON.stringify(response.data, undefined, 4);
         else

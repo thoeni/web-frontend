@@ -9,9 +9,10 @@
                 </span>
                 <uib-accordion-group heading="Projects">
                     <form ng-submit="submitProject(projectId)">
-                        <label tooltip="Possible values are 'TravisPerkins' or 'Pulse'. Empty to retrieve all projects. ">
+                        <label tooltip="Possible values are 'TravisPerkins' or 'Pulse'. Empty to retrieve all projects.">
                             Specify a project:</label>
                         <input type="text" name="input" ng-model="projectId" class="form-control col-md-3"/>
+                        <span class="form-control col-md-3"><a href="{{uriProject}}">{{uriProject}}</a></span>
                         <button type="submit" class="btn btn-success col-md-1 margins">Call API</button>
                         <div class="well well-lg col-md-12" ng-if="project">
                             <pre ng-bind-html="project | prettify"></pre>
@@ -29,6 +30,7 @@
                         <label tooltip="Possible values are 'jo' 'kate', 'lorian', 'munveer', 'rachelle', 'soi'. Empty to retrieve all testimonials. ">
                             Specify a testimonial:</label>
                         <input type="text" name="input" ng-model="testimonialId" class="form-control col-md-3"/>
+                        <span class="form-control col-md-3"><a href="{{uriTestimonial}}">{{uriTestimonial}}</a></span>
                         <button type="submit" class="btn btn-success col-md-1 margins">Call API</button>
                         <div class="well well-lg col-md-12" ng-if="testimonial">
                             <pre ng-bind-html="testimonial | prettify"></pre>

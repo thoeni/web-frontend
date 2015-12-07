@@ -49,5 +49,5 @@ body {
 [template=landing-page] .margins {
   margin: 30px 0; }
 
-[template=landing-page] .panel-group .panel {
+[template=landing-page] .panel-group .panel, [template=landing-page] .form-control {
   margin: 20px 0; }
