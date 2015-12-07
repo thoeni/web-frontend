@@ -1,0 +1,41 @@
+<script type="text/ng-template" id="landing-page.html">
+    <div template="landing-page">
+        <div class="container">
+            <uib-accordion>
+                <h3>My Projects at ANDigital</h3>
+                <span>
+                    The following section allows you to call the 'project' API, that exposes information about the projects I took part in.<br/>
+                    The API can be called without arguments (that means that will retrieve all the data) or specifying the project: available projects are <b>TravisPerkins</b> and <b>Pulse</b>
+                </span>
+                <uib-accordion-group heading="Projects">
+                    <form ng-submit="submitProject(projectId)">
+                        <label tooltip="Possible values are 'TravisPerkins' or 'Pulse'. Empty to retrieve all projects. ">
+                            Specify a project:</label>
+                        <input type="text" name="input" ng-model="projectId" class="form-control col-md-3"/>
+                        <button type="submit" class="btn btn-success col-md-1 margins">Call API</button>
+                        <div class="well well-lg col-md-12" ng-if="project">
+                            <pre ng-bind-html="project | prettify"></pre>
+                        </div>
+                    </form>
+                </uib-accordion-group>
+                <br/>
+                <h3>Feedback on my work</h3>
+                <span>
+                    The following section allows you to call the 'testimonial' API, that exposes feedback I've received from my colleagues.<br/>
+                    The API can be called without arguments (that means that will retrieve all the data) or specifying the testimonial name: available testimonials are <b>jo</b>, <b>lorian</b>, <b>soi</b>, <b>rachelle</b>, <b>munveer</b>, <b>kate</b>
+                </span>
+                <uib-accordion-group heading="Testimonials">
+                    <form ng-submit="submitTestimonial(testimonialId)">
+                        <label tooltip="Possible values are 'jo' 'kate', 'lorian', 'munveer', 'rachelle', 'soi'. Empty to retrieve all testimonials. ">
+                            Specify a testimonial:</label>
+                        <input type="text" name="input" ng-model="testimonialId" class="form-control col-md-3"/>
+                        <button type="submit" class="btn btn-success col-md-1 margins">Call API</button>
+                        <div class="well well-lg col-md-12" ng-if="testimonial">
+                            <pre ng-bind-html="testimonial | prettify"></pre>
+                        </div>
+                    </form>
+                </uib-accordion-group>
+            </uib-accordion>
+        </div>
+    </div>
+</script>

@@ -1,0 +1,20 @@
+[template=landing-page] {
+
+  .btnColWidth{
+    width: 100px;
+  }
+
+  pre {outline: none; padding: 5px; margin: 5px; border: none }
+  .string { color: green; }
+  .number { color: darkorange; }
+  .boolean { color: blue; }
+  .null { color: magenta; }
+  .key { color: red; }
+
+  .margins {margin: 30px 0}
+
+  .panel-group .panel {
+    margin: 20px 0;
+  }
+
+}

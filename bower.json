@@ -1,0 +1,23 @@
+{
+  "name": "front-end",
+  "version": "0.0.0",
+  "homepage": "https://github.com/thoeni/web",
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bower-components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "angular-bootstrap": "~0.14.3",
+    "angular-sanitize": "~1.4.8"
+  }
+}
