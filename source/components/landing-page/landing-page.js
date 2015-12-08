@@ -44,7 +44,6 @@ app.controller('landingPageController', ['$scope', '$state', '$location', 'restS
     };
 
     var getProjectDetails = function (response) {
-        $scope.uriProject = absUrl+response.config.url;
         if (response.status == 200)
             $scope.project = JSON.stringify(response.data, undefined, 4);
         else
@@ -52,7 +51,6 @@ app.controller('landingPageController', ['$scope', '$state', '$location', 'restS
     };
 
     var getTestimonialDetails = function (response) {
-        $scope.uriTestimonial = absUrl+response.config.url;
         if (response.status == 200)
             $scope.testimonial = JSON.stringify(response.data, undefined, 4);
         else

@@ -15,18 +15,102 @@
 <script type="text/ng-template" id="landing-page.html">
     <div template="landing-page">
         <div class="container">
+            <h3>What is this...?</h3>
+            <p>
+                This page aims to show part of what I've learnt in the last months.<br/>
+                One of my favourite quotes from the movie <b>Transformers</b> is <i>"There's more than meets the
+                eye."</i>, and I'm going to show you why quite often what you see is just the tip of the iceberg.<br/>
+                This apparently trivial web page, is just the cover of a more complex and interesting book and, as a
+                digital storyteller, I'll guide you through the journey that your request will do to come back in the
+                following chapters:
+            <ol>
+                <li>
+                    As a developer, I write code, and this code is pushed to a remote repository, named <b><a
+                        href="https://en.wikipedia.org/wiki/GitHub">Github</a></b><br/>
+                    I've used Github during my university projects, but never in a professional environment before
+                    working here at ANDigital. I'm currently one of the administrators of the company repository, and
+                    anytime I have the opportunity I like to investigate advanced concepts of using Git. I daily use Git
+                    also for my side projects.
+                </li>
+                <li>
+                    I daily use <b><a href="https://en.wikipedia.org/wiki/Docker_(software)">Docker</a></b>, that allows
+                    me to deploy my application in software units called <i>'containers'</i>. I've recently used this
+                    technology on a client project, as well as on internal project. I'm member of Docker
+                    London group, and I participate to community events. On <a
+                        href="https://skillsmatter.com/meetups/7554-docker-london-meetup">Thursday, 3rd December</a> I
+                    had the opportunity to assist to a live demo of a tool named <b><a href="https://www.tutum.co/how/">Tutum</a></b>
+                    and I've used it for this small project, because <b>this is what I like</b>: experimenting new
+                    things. Tutum helps developers to manage, organise and scale containers on different cloud
+                    providers, creating a sort of abstraction layer on top of the main vendors. The company has recently
+                    been bought by Docker itself.
+                </li>
+                <li>
+                    The could provider I've used is - no surprise - <b><a
+                        href="https://en.wikipedia.org/wiki/Amazon_Web_Services">Amazon Web Services</a></b>. I've never
+                    used AWS before coming at ANDigital, and I'm currently one of the administrators of the company
+                    account. I've recently operated a migration from a provider to AWS environment for the internal
+                    instances of Jira and Confluence. I'm a member of the <a href="http://www.meetup.com/AWSUGUK/">AWS
+                    User Group UK</a>, and I've recently participated to their latest event.<br/>
+                    Everything behind this application is currently running within Docker containers hosted on a single
+                    EC2 instance on AWS.
+                </li>
+                <li>
+                    Despite data like projects I've contributed to, and feedback I've received are static resources,
+                    I've decided to show how a typical three tier architecture can be made, and this is why I have a
+                    database. The database I chose is called <b><a
+                        href="https://en.wikipedia.org/wiki/MariaDB">MariaDB</a></b>, and it's a relational database
+                    that comes from a fork of the way more famous <b>MySQL</b>. No many people know that MariaDB in
+                    addition to being an open source database, it's also faster and supports advanced features like
+                    replication, clustering and multi master. The transition from MySQL to MariaDB is seamless. The
+                    instance that is currently running beneath this website is the <b><a
+                        href="https://hub.docker.com/_/mariadb/">official docker image</a></b> created by the MariaDB
+                    team. I came across this technology in Italy, while I was attending to the <b>Codemotion</b>
+                    conference: one of the VIP guests was the founder of MySQL, now head of the MariaDB team.
+                </li>
+                <li>
+                    The middle layer is what is usually called <b>backend</b>: it exposes APIs as RestFUL endpoints
+                    through which the caller can access the underneath data layer. APIs provide a standardised mean of
+                    communication between front-end and database, and abstract the data model to provide potentially
+                    pre-processed and aggregated data. The technology I'm more confident with is <b>Java</b>, but I'm
+                    experimenting different solutions by using <b><a
+                        href="https://en.wikipedia.org/wiki/Scala_(programming_language)">Scala</a></b> and lately I've
+                    been using <b><a href="https://en.wikipedia.org/wiki/Go_(programming_language)">Go</a></b>. Go is a
+                    language developed internally by Google to satisfy specific requirements of
+                    low-level/high-performance language, natively supporting concurrency and actors model. I've been
+                    using this language since the beginning on december 2015, I've started with an online training from
+                    Pluralsight, and I'm now keen to participate do meetups and coding dojos organised by the Go
+                    community. Go is the language that Docker is build on top. All the APIs behind this website are
+                    entirely written in Go, and are running within a Docker container.
+                </li>
+                <li>
+                    The front-end part is quite simple and minimalistic, also because front-end development is not my
+                    main interest. I've used AngularJS (which is a framework I've started exploring here at ANDigital)
+                    and the application is served through an NGINX server.
+                </li>
+            </ol>
+            These are all the layers that a request will pass through before coming back to your client.<br/>
+            You can play with a couple of APIs I've exposed, that will extract some <b>more information</b> about me at
+            ANDigital, like projects I've contributed to, and feedback that my colleagues gave me. APIs can be called
+            though this web page, or directly by clicking on the link. By calling the APIs through the link you will see
+            the raw data that the backend sends to the front-end before any reformatting, processing and embellishment.
+            The 'Call API' button allows you to get a more readable result with a minimal formatting.
+            </p>
+            <img class="center-block" src="static/img/demo.png">
             <uib-accordion>
                 <h3>My Projects at ANDigital</h3>
-                <span>
-                    The following section allows you to call the 'project' API, that exposes information about the projects I took part in.<br/>
-                    The API can be called without arguments (that means that will retrieve all the data) or specifying the project: available projects are <b>TravisPerkins</b> and <b>Pulse</b>
-                </span>
+                <p>
+                    The following section allows you to call the 'project' API, that exposes information about the
+                    projects I took part in.<br/>
+                    The API can be called without arguments (that means that will retrieve all the data) or specifying
+                    the project: available projects are <b>TravisPerkins</b> and <b>Pulse</b>
+                </p>
                 <uib-accordion-group heading="Projects">
                     <form ng-submit="submitProject(projectId)">
                         <label tooltip="Possible values are 'TravisPerkins' or 'Pulse'. Empty to retrieve all projects.">
                             Specify a project:</label>
                         <input type="text" name="input" ng-model="projectId" class="form-control col-md-3"/>
-                        <span class="form-control col-md-3"><a href="{{uriProject}}">{{uriProject}}</a></span>
+                        <span class="form-control col-md-3"><a
+                                href="{{uriProject}}">{{uriProject}}{{projectId}}</a></span>
                         <button type="submit" class="btn btn-success col-md-1 margins">Call API</button>
                         <div class="well well-lg col-md-12" ng-if="project">
                             <pre ng-bind-html="project | prettify"></pre>
@@ -44,7 +128,7 @@
                         <label tooltip="Possible values are 'jo' 'kate', 'lorian', 'munveer', 'rachelle', 'soi'. Empty to retrieve all testimonials. ">
                             Specify a testimonial:</label>
                         <input type="text" name="input" ng-model="testimonialId" class="form-control col-md-3"/>
-                        <span class="form-control col-md-3"><a href="{{uriTestimonial}}">{{uriTestimonial}}</a></span>
+                        <span class="form-control col-md-3"><a href="{{uriTestimonial}}{{testimonialId}}">{{uriTestimonial}}</a></span>
                         <button type="submit" class="btn btn-success col-md-1 margins">Call API</button>
                         <div class="well well-lg col-md-12" ng-if="testimonial">
                             <pre ng-bind-html="testimonial | prettify"></pre>
