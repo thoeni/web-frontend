@@ -79,7 +79,7 @@
             ANDigital, like projects I've contributed to, and feedback that my colleagues gave me. APIs can be called
             though this web page, or directly by clicking on the link. By calling the APIs through the link you will see
             the raw data that the backend sends to the front-end before any reformatting, processing and embellishment.
-            The 'Call API' button allows you to get a more readable result with a minimal formatting.
+            The 'Call API' button allows you to get a more readable result with a minimal formatting.<br/>
             </p>
             <img class="center-block" src="static/img/demo.png">
             <uib-accordion>
@@ -96,7 +96,7 @@
                             Specify a project:</label>
                         <input type="text" name="input" ng-model="projectId" class="form-control col-md-3"/>
                         <span class="form-control col-md-3"><a
-                                href="{{uriProject}}">{{uriProject}}{{projectId}}</a></span>
+                                href="{{uriProject}}{{projectId}}">{{uriProject}}{{projectId}}</a></span>
                         <button type="submit" class="btn btn-success col-md-1 margins">Call API</button>
                         <div class="well well-lg col-md-12" ng-if="project">
                             <pre ng-bind-html="project | prettify"></pre>
@@ -114,7 +114,7 @@
                         <label tooltip="Possible values are 'jo' 'kate', 'lorian', 'munveer', 'rachelle', 'soi'. Empty to retrieve all testimonials. ">
                             Specify a testimonial:</label>
                         <input type="text" name="input" ng-model="testimonialId" class="form-control col-md-3"/>
-                        <span class="form-control col-md-3"><a href="{{uriTestimonial}}{{testimonialId}}">{{uriTestimonial}}</a></span>
+                        <span class="form-control col-md-3"><a href="{{uriTestimonial}}{{testimonialId}}">{{uriTestimonial}}{{testimonialId}}</a></span>
                         <button type="submit" class="btn btn-success col-md-1 margins">Call API</button>
                         <div class="well well-lg col-md-12" ng-if="testimonial">
                             <pre ng-bind-html="testimonial | prettify"></pre>
